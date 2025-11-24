@@ -1,4 +1,4 @@
-package com.NRG.vende.models;
+package com.NRG.vende.dto;
 
 public record AuthDTO(String email, String senha) {
 }

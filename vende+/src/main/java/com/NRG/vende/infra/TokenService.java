@@ -1,6 +1,6 @@
 package com.NRG.vende.infra;
 
-import com.NRG.vende.models.UsuarioEntity;
+import com.NRG.vende.models.usuario.UsuarioEntity;
 import com.auth0.jwt.JWT;
 import com.auth0.jwt.algorithms.Algorithm;
 import com.auth0.jwt.exceptions.JWTCreationException;
@@ -40,7 +40,7 @@ public class TokenService {
                     .verify(token)
                     .getSubject();
         } catch (JWTVerificationException exception) {
-            throw new JWTVerificationException("Exeção de verificação", exception);
+            throw new JWTVerificationException("Exceção de verificação", exception);
         }
     }
 

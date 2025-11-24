@@ -1,4 +1,4 @@
-package com.NRG.vende.models;
+package com.NRG.vende.models.usuario;
 
 public enum UsuarioCargoEnum {
     ADMIN("admin"),

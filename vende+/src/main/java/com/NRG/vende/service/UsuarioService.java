@@ -1,17 +1,14 @@
 package com.NRG.vende.service;
 
-import com.NRG.vende.models.UsuarioCargoEnum;
-import com.NRG.vende.models.UsuarioEntity;
+import com.NRG.vende.models.usuario.UsuarioCargoEnum;
+import com.NRG.vende.models.usuario.UsuarioEntity;
 import com.NRG.vende.repository.UsuarioRepository;
 import jakarta.annotation.PostConstruct;
-import jakarta.persistence.PostLoad;
-import jakarta.persistence.PostPersist;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public class UsuarioService {
