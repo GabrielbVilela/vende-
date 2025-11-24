@@ -21,20 +21,10 @@ public class UsuarioController {
         return s.findAll();
     }
 
-//    @PostMapping("/login")
-//    public ResponseEntity<?> Login(@RequestBody UsuarioEntity usuario) {
-//        var user = s.login(usuario.getEmail(), usuario.getSenha());
-//        if (user.isEmpty()) {
-//            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).
-//                    body(Map.of("message","Email ou senha incorretos"));
-//        }
-//        return ResponseEntity.ok(Map.of("message","Usuário Encontrado"));
-//    }
-
     @PostMapping("/registrar")
     public ResponseEntity<?> Registrar(@RequestBody UsuarioEntity data) {
         String encryptedSenha = new BCryptPasswordEncoder().encode(data.getPassword());
-        UsuarioEntity novoUsuario = new UsuarioEntity(data.getEmail(), data.getNome(), encryptedSenha, "admin");
+        UsuarioEntity novoUsuario = new UsuarioEntity(data.getEmail(), data.getNome(), encryptedSenha);
         s.registrar(novoUsuario);
         return ResponseEntity.status(HttpStatus.CREATED).
                 body(Map.of("message","Usuario registrado"));

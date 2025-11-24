@@ -25,11 +25,18 @@ public class UsuarioEntity implements UserDetails {
 
     public UsuarioEntity() {}
 
-    public UsuarioEntity(String email, String nome, String senha, String cargo) {
+    public UsuarioEntity(String email, String nome, String senha) {
         this.email = email;
         this.nome = nome;
         this.senha = senha;
-        this.cargo = UsuarioCargoEnum.ADMIN;
+        this.cargo = UsuarioCargoEnum.User;
+    }
+
+    public UsuarioEntity(String email, String nome, String senha, UsuarioCargoEnum cargo) {
+        this.email = email;
+        this.nome = nome;
+        this.senha = senha;
+        this.cargo = cargo;
     }
 
     public long getId() {

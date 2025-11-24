@@ -1,11 +1,13 @@
 package com.NRG.vende.service;
 
+import com.NRG.vende.models.UsuarioCargoEnum;
 import com.NRG.vende.models.UsuarioEntity;
 import com.NRG.vende.repository.UsuarioRepository;
 import jakarta.annotation.PostConstruct;
 import jakarta.persistence.PostLoad;
 import jakarta.persistence.PostPersist;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -31,9 +33,8 @@ public class UsuarioService {
 
     @PostConstruct
     public void init() {
-        var usuario = new UsuarioEntity("Email", "Nome", "Senha","admin");
-        r.save(usuario);
-        usuario = new UsuarioEntity("Email2", "Nome2", "123","user");
+        String senhaCipher = new BCryptPasswordEncoder().encode("123456");
+        var usuario = new UsuarioEntity("admin@pdv.com", "Admin", senhaCipher, UsuarioCargoEnum.ADMIN);
         r.save(usuario);
     }
 }
