@@ -1,6 +1,6 @@
 package com.NRG.vende.repository;
 
-import com.NRG.vende.models.ProdutoEntity;
+import com.NRG.vende.models.produto.ProdutoEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
@@ -10,7 +10,7 @@ import java.util.List;
 public interface ProdutoRepository extends JpaRepository<ProdutoEntity, Long> {
 
     List<ProdutoEntity> findAll();
-    List<ProdutoEntity> findById(long id);
-    List<ProdutoEntity> findByNomeContaining(String nome);
+    ProdutoEntity findById(long id);
+    List<ProdutoEntity> findByNomeContainingIgnoreCase(String nome);
 
 }
