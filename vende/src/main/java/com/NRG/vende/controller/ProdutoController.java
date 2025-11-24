@@ -11,28 +11,24 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
+@RequestMapping("produtos")
 public class ProdutoController {
     @Autowired
     private ProdutoService service;
 
-    @GetMapping
-    public String hello() {
-        return "Hello World";
-    }
-
-    @GetMapping("/produto")
-    public List<ProdutoEntity> produto() {
+    @GetMapping()
+    public List<ProdutoEntity> listaProduto() {
         return service.listarProdutos();
     }
 
-    @PostMapping("/produto")
-    public ResponseEntity<String> post(@RequestBody ProdutoRequestDTO data) {
+    @PostMapping()
+    public ResponseEntity<String> criaProduto(@RequestBody ProdutoRequestDTO data) {
         service.criarProduto(data);
         return ResponseEntity.ok("cadastrado com sucesso");
     }
 
-    @PutMapping("/produto")
-    public ResponseEntity<String> put(@RequestBody ProdutoRequestDTO data) {
+    @PutMapping()
+    public ResponseEntity<String> atualizaProduto(@RequestBody ProdutoRequestDTO data) {
         service.atualizarProduto(data.id(), data);
         return ResponseEntity.ok("atualizado com sucesso");
     }
